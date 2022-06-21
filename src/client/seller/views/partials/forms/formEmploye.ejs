@@ -1,0 +1,43 @@
+<form id="form_reg_employee">
+    <div class="form-group">
+    
+      <input id="id_employee" class="form-control" type="text" placeholder="Identificacion" maxlength="15" autofocus>
+      <label id="notification-error__inputIdEmployee" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+     
+      <input id="name_employee" class="form-control" type="text" placeholder="Nombre" onkeyup="javascript:this.value=this.value.toUpperCase()">
+      <label id="notification-error__inputNameEmployee" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+     
+      <input id="dir_employee" class="form-control" type="text" placeholder="Direccion">
+      <label id="notification-error__inputDirEmployee" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+    
+      <input id="cel_employee" class="form-control" type="text" placeholder="Celular" maxlength="10">
+      <label id="notification-error__inputCelEmployee" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+     
+      <input id="tel_employee" class="form-control" type="text" placeholder="Telefono" maxlength="10">
+      <label id="notification-error__inputTelEmployee" class="notifications-input">Formato invalido</label>
+    </div>
+   
+    <div class="form-group">
+        
+        <input id="email_employee" class="form-control" type="email" placeholder="Email" maxlength="50">
+        <label id="notification-error__inputEmailEmployee" class="notifications-input">Formato invalido</label>
+
+      </div>  
+
+      <div class="toggle-flip"  id="vinculation-employe" style="display: none;">
+        <label>
+          <input type="checkbox" id="select-vinculation"><span style="padding:1em 4em 0em 7em;"  class="flip-indecator pr-3" data-toggle-on="Vincular" data-toggle-off="Desvincular"></span>
+        </label>
+      </div> 
+      
+      <div id="message-regEmployee" class="message-reg alert alert-danger mt-3" role="alert"></div>
+     
+  </form>

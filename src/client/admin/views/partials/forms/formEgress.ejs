@@ -1,0 +1,32 @@
+<form id="form_reg_egrees">
+    <div class="form-group">
+        <select class="form-control " id="select_supplier-egress" >
+           <option  disabled selected value="null">--Seleccione proveedor --</option>
+           <label id="notification-error__selectSupp"
+           class="notifications-input">Formato invalido</label>
+        </select>
+    </div>
+    <div class="form-group">
+        <select class="form-control " id="select_category-egress" >
+           <option  disabled selected value="null">--Seleccione categoria --</option>
+           <label id="notification-error__selectCateg"
+           class="notifications-input">Formato invalido</label>
+        </select>
+    </div>
+    <div class="form-group">
+        <textarea style="resize: none;" id="register_concept-egress"
+             class="form-control" type="text"
+            placeholder="Concepto" maxlength="200"onkeyup="javascript:this.value=this.value.toLowerCase()"></textarea>
+        <label id="notification-error__inputConceptEg"
+            class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+        <label for="">Valor:</label>
+        <input id="register_egress-price" name="precio" class="form-control"
+            type="number" placeholder="$00" min="100" max="9999999">
+        <label id="notification-error__inputPriceEg"
+            class="notifications-input">Formato invalido</label>
+    </div>
+    <div id="message-regEgress" class="message-reg alert alert-danger mt-3"
+        role="alert"></div>
+</form>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header') %>
+<body class="app sidebar-mini">
+    
+    <!-- Navbar-->
+    <%- include('./partials/navbar') %>
+    <main class="app-content" >
+        <div class="app-title">
+            <div>
+                <h1><i class="fas fa-money-check-alt"></i> Egresos</h1>
+                <p>Registro y consulta de egresos</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="clearfix" style="margin-bottom:-1.3rem;">
+                <button id="btn__geneterate-egress" class="btn btn-light btn-sm ml-4 mb-4 pt-1 pb-2"
+                        type="button"> Generar Nuevo <i class="fas fa-file"></i>
+                </button>
+                <button id="btn__consult-egress" class="btn btn-light btn-sm ml-1 mb-4 pt-1 pb-2" 
+                        type="button"> Consultar <i class="fas fa-th-list"></i>
+                </button>
+        </div>
+    
+            <div class="col-md-12 " >
+                <div class="row"  id="container__reg-egress" style="display: none;">
+                    <div class="col-md-6">
+                        <div class="tile">
+                            <h5 class="mb-3 line-head">Nuevo egreso</h5>
+                            <div class="tile-body">
+                                <%- include('./partials/forms/formEgress') %>
+                                <div class="tile-footer">
+                                       <button id="btn__reg-egrees" class="btn btn-primary">
+                                            <i class="fa fa-fw fa-lg fa-edit"> </i>Agregar</button>
+                                        <button id="btn__regcancel-egrees" class="btn btn-secondary">
+                                            <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="tile"  id="container__consults-egress" >
+                            <h5 class="mb-3 line-head">Consultar</h5>
+                            <div class="col-md-16 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                                <div class="col-md-3 " >
+                                    <input class="form-control" id="input__Date1-egress" type="date"
+                                           data-toggle="tooltip" data-placement="bottom"  data-original-title="fecha inicial"
+                                           min="2021-01-01" max="2050-01-01">
+                                </div>
+                                <div class="col-md-3 ">                                   
+                                    <input class="form-control" id="input__Date2-egress"  type="date" 
+                                           data-toggle="tooltip" data-placement="bottom"  data-original-title="fecha final"
+                                           min="2021-01-01" max="2050-01-01" > 
+                                </div>
+                                
+                                <div id="message-consEgress" class="message-reg alert alert-danger mt-3"
+                                     role="alert"></div>
+                                <div class=" col-md-3 " id=" "  >
+                                    
+                                    <select class="form-control" name="" id="Consult_Category-ByEgress"
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="categoria">
+                                        <option value="null">-- --</option>
+                                        <option value="name">Proveedor</option>
+                                        <option value="sup">Id Proveedor</option>
+                                        <option value="concep">Concepto</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 " >
+                                    <input class="form-control" id="seach_parameterEgress"
+                                            type="search" placeholder="Buscar" disabled
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="parametro de busquedaa">
+                                </div>
+                            </div>                         
+
+                            <button id="btn__consult-allEgress"  class="btn btn-dark btn-sm mb-4 ml-3 pt-1 pb-2" type="button"
+                                   >
+                                    Listar Todos  <i class="ml-2 fa fa-list"></i>
+                            </button>
+                        <div id="container_table-Egress">
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>              
+            </main>
+            <!-- Sidebar menu-->
+            <%- include('./partials/sidebar') %>
+
+            <!-- Footer-->
+            <%- include('./partials/footer') %>
+</body>
+
+</html>

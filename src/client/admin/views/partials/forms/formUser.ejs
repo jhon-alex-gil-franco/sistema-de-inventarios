@@ -1,0 +1,41 @@
+<form id="form_reg_User">
+    <div class="form-group">
+      <input id="id_User" class="form-control" type="text" placeholder="Identificacion" maxlength="15" autofocus>
+      <label id="notification-error__inputIdUser" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">   
+      <input id="name_User" class="form-control" type="text" placeholder="Nombre" onkeyup="javascript:this.value=this.value.toUpperCase()">
+      <label id="notification-error__inputNameUser" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+      <input id="email_User" class="form-control" type="email" placeholder="Email" maxlength="50">
+      <label id="notification-error__inputEmailUser" class="notifications-input">Formato invalido</label>
+  </div>  
+    <div class="form-group">
+      <input id="pass_User" class="form-control" type="text" placeholder="Password" maxlength="15">
+      <label id="notification-error__inputPassUser" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+      <input id="confimPass_User" class="form-control" type="text" placeholder="Confirmar Password" maxlength="15">
+      <label id="notification-error__inputConfimPassUser" class="notifications-input">Las contraseñas no coinciden</label>
+    </div>
+    <div class="form-group">
+      <select class="form-control " id="rol_User" >
+        <option disabled selected value="null">-- Rol de usuario --</option>
+        <option value="admin">Admin</option>
+        <option value="seller" >Seller</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <select class="form-control " id="category_User" >
+        <option disabled selected value="null">-- Categoria --</option>
+        <option value="TODAS">TODAS</option>
+      </select>
+    </div>
+    <div class="toggle-flip"  id="containerActivation-User" style="display: none;">
+        <label>
+          <input type="checkbox" id="select-activationUser"><span style="padding:1em 4em 0em 7em;"  class="flip-indecator pr-3" data-toggle-on="Activo" data-toggle-off="Inactivo"></span>
+        </label>
+    </div> 
+    <div id="message-regUser" class="message-reg alert alert-danger mt-3" role="alert"></div>
+  </form>

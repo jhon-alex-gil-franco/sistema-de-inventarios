@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header') %>
+  <body class="app sidebar-mini">
+    <!-- Navbar-->
+    <%- include('./partials/navbar') %>
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-edit"></i> Registrar Categoria</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tile">
+            <div class="tile-body">
+              <%- include('./partials/forms/formCategory') %>
+              <button id="btn__reg-category" class="btn btn-primary btn-sm" type="submit"><i
+                class="fa fa-fw fa-lg fa-check-circle"></i>Agregar</button>&nbsp;&nbsp;&nbsp;<a
+                class="btn btn-secondary btn-sm" id="btn__resetRegisterCategory" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+            </div>
+          </div>
+        </div>
+    </main>
+      <!-- Sidebar menu-->
+    <%- include('./partials/sidebar') %>
+        <!-- Footer-->
+    <%- include('./partials/footer') %>
+  </body>
+
+</html>

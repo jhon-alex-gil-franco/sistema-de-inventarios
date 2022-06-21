@@ -1,0 +1,58 @@
+<form id="form_reg_Supp">
+
+  
+
+    <div class="form-group">
+      <label class="control-label">Tipo de documento</label>
+      
+      <select class="form-control " id="t_supplier" >
+        <option id="value" value="null" selected>-- --</option>
+        <option value="persona">C.C.</option>
+        <option value="empresa" >NIT</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input class=" form-control " id="id_supplier" type="text"  name="id" maxlength="15"
+        placeholder="Identificacion" disabled>
+      <label id="notification-error__inputIdSupp" class="notifications-input">Verifique los datos
+        insertados</label>
+    </div>
+    <div class="form-group">
+      <input class="form-control " id="name_supplier" name="name" type="text"
+        placeholder="Nombre" disabled onkeyup="javascript:this.value=this.value.toUpperCase()">
+      <label id="notification-error__inputNameSupp" class="notifications-input">Verifique los datos
+        insertados</label>
+    </div>
+    <div class="form-group">
+      <input class="form-control " name="dir" id="dir_supplier" type="text"
+        placeholder="Direccion">
+      <label id="notification-error__inputDirSupp" class="notifications-input">Verifique los datos
+        insertados</label>
+      </div>
+      <div class="form-group">
+        <input class="form-control " name="tel" id="cel_supplier" type="text"
+          placeholder="Celular" maxlength="10">
+        <label id="notification-error__inputCelSupp" class="notifications-input">Verifique los datos
+          insertados</label>
+      </div>
+    <div class="form-group">
+      <input class="form-control " name="tel" id="tel_supplier" type="text"
+        placeholder="Telefono" maxlength="10">
+      <label id="notification-error__inputTelSupp" class="notifications-input">Verifique los datos
+        insertados</label>
+    </div>
+    <div class="form-group">
+      <input class="form-control " name="email" id="email_supplier" type="email"
+        placeholder="Email" maxlength="50">
+      <label id="notification-error__inputEmailSupp" class="notifications-input">Verifique los datos
+        insertados</label>
+    </div>
+    <div class="form-group">
+        <label for="">Descripcion</label>
+        <textarea style="resize: none;" id="description_supplier" name="precio" class="form-control" type="text"
+            placeholder="Productos o servicios que ofrece" maxlength="200"  onkeyup="javascript:this.value=this.value.toLowerCase()"></textarea>
+        <label id="notification-error__inputDescriptionSupp" class="notifications-input">Formato invalido</label>
+    </div>
+                
+    <div id="message-regSupp" class="message-reg alert alert-danger mt-3" role="alert"></div>
+  </form>

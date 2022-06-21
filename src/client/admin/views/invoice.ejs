@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header') %>
+
+    <body class="app sidebar-mini">
+
+        <!-- Navbar-->
+        <%- include('./partials/navbar') %>
+
+        <main class="app-content">
+            <div class="app-title">
+                <div>
+                    <h1><i class="fas fa-file-invoice-dollar"></i></i> Factura</h1>
+                    <p>Registro y consulta de facturas</p>
+                </div>
+            </div>
+            <div class="row" id="container__main-invoice">
+                <div class="clearfix" style="margin-bottom:-1.3rem;">
+                    <button id="btn__geneterate-invoice" class="btn btn-light btn-sm ml-4 mb-4 pt-1 pb-2"
+                            type="button">Nueva <i class="fas fa-file-invoice"></i>
+                    </button>
+                    <button id="btn__consult-invoice" class="btn btn-light btn-sm ml-1 mb-4 pt-1 pb-2"
+                            type="button">Consultas <i class="fas fa-search"></i></i>
+                    </button>
+                </div>
+                <div id="container__consult-invoice" class="col-md-12 " style="display: none;">
+                    <div class="tile">
+                        <h5>Consultas</h5>
+                        <div class="col-md-16 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                            <div class="col-md-3 ">
+                                <input class="form-control" id="input__Date1-invoice" type="date"
+                                data-toggle="tooltip" data-placement="bottom"
+                                data-original-title="fecha inicial" min="2021-01-01" max="2050-01-01">
+                            </div>
+                            <div class="col-md-3 ">
+                                <input class="form-control" id="input__Date2-invoice" type="date"
+                                       data-toggle="tooltip" data-placement="bottom" data-original-title="fecha final"
+                                       min="2021-01-01" max="2050-01-01">
+                            </div>
+                            <div id="message-consInvoice" class="message-reg alert alert-danger mt-3" role="alert"></div>
+                            <div class=" col-md-3 " id=" ">
+                                <select class="form-control" name="" id="Consult_Category-ByInvoice"data-toggle="tooltip" data-placement="bottom" data-original-title="categoria">
+                                    <option value="null">-- --</option>
+                                    <option value="idClient">Id Cliente</option>
+                                    <option value="name">Nombre Cliente</option>
+                                    <option value="cod">Cod Factura</option>
+                                    <option value="payment">T. Pago</option>
+                                </select>  
+                            </div>
+                            <div class="col-md-2 ">
+                                <input class="form-control" id="seach_parameterInvoice" type="search"
+                                       placeholder="Buscar" disabled data-toggle="tooltip" data-placement="bottom"
+                                       data-original-title="parametro de busqueda">
+                            </div>
+                        </div>
+                        <button id="List_consultAllInvoice" class="btn btn-dark btn-sm mb-4 ml-3 pt-1 pb-2"type="button">Listar Todos <i class="ml-2 fa fa-list"></i></button>
+                        <button id="List_consultAmullInvoice" class="btn btn-danger btn-sm mb-4 ml-3 pt-1 pb-2"type="button">Listar anuladas <i class="ml-2 fa fa-list"></i></button>
+                        <div id="container_table-Invoice"></div>
+                    </div>
+                </div>
+
+                <div id="container__new-invoice" class="col-md-12 " style="display: block;">
+                    <div class="tile">
+                        <form id="form__create-invoice">
+                            <div>
+                                <h5 id="title__code-invoice"></h5>
+                            </div>
+                            <div class="col-md-12 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                                <div class="col-md-4 ">
+                                    <input class="form-control" type="text" maxlength="15" placeholder="Id Cliente"  id="idClient__ByInvoice" >
+                                </div>
+                                <div class="col-md-4"><input id="client__ByInvoice" type="text" class="form-control" placeholder="Nombre cliente" disabled></div>
+                                <div class=" col-md-2 " id=" ">
+                                    <select class="form-control" name="" id="select__tpayment-invoice">
+                                        <option disabled selected value="null">T.Pago</option>
+                                        <option value="contado">Contado</option>
+                                        <option value="credito">Credito</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div  id="container__info-items" style="display:none;">
+                                <div class="col-md-12 mr-2 mb-3" style=" display: flex; flex-wrap: wrap;">
+                                    <div class="col-md-6 " id="container__select-productInvoince">
+                                        <select class="form-control " name="" id="select-product__ByInvoice"
+                                        data-toggle="tooltip" data-placement="bottom"
+                                        data-original-title="Producto - Referecia - Precio de compra">
+                                        <option value="null" disabled selected>Productos</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-2 " id="container__input-cantProductInvoince">
+                                        <input id="cant__byInvoice" name="precio" class="form-control" type="number"
+                                               placeholder="1" min=1 max=99 data-toggle="tooltip" data-placement="bottom"
+                                               data-title="cantidad">
+                                    </div>
+                                    <div id="container_price-service" class="col-md-2" style="display: flex; ">
+                                        <input id="price-of__itemInvoice" name="precio" class="number  form-control"
+                                               type="number" placeholder="$ 00" min="100" max="9999999">
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <button id="add__item-byInvoice" class="btn btn-success " type="button">
+                                            <i class="fas fa-plus"></i> 
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="message-regItem" class="message-reg alert alert-danger mt-3" role="alert"></div>
+                                    
+                            </div>
+                                
+                        </form>
+                        
+                        <div id="contaier__table-items" class="table-responsive" style="display: none;">
+                            <table class="table table-striped ">
+                                <thead style="background:rgb(182, 184, 183);">
+                                    <tr>
+                                        <th>Des</th>
+                                        <th>Marca</th>
+                                        <th>Ref</th>
+                                        <th>Cant</th>
+                                        <th>V.Unit</th>
+                                        <th>V.Total</th>
+                                        <th>Accion</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table__items-invoice">
+                                </tbody>
+                            </table>
+                            <div style="display: flex;">
+                                <div style="display: flex; margin-left: 1rem;"><strong>Total:</strong>
+                                    <p id="text__total-bruto"></p>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="tile-footer">
+                            <button id="register__newInvoice" class="btn btn-primary btn-sm" type="button" disabled>
+                                <i class="fa fa-fw fa-lg fa-check-circle"></i>Facturar</button>
+                            &nbsp;&nbsp;&nbsp;<a class="btn btn-secondary btn-sm" id="resetRegisterInvoice" href="#">
+                                <i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div id="container__edit-invoice" class="col-md-12 " style="display: none;" ></div>
+            <div class="row" id="info__client-printInvoice" style="display:none"></div>
+       
+            
+            <!-- modal reg new client-->       
+            <div id="Modal__register-client" class="modal">
+                <div class="modal-dialog flex" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header flex">
+                            <h5 >Registro  de cliente</h5>
+                        </div>
+                        <div class="modal-body">
+                            <%- include('./partials/forms/formClient.ejs') %>
+                            <button id="registerClient" class="btn btn-primary" type="submit"><i
+                                    class="fa fa-fw fa-lg fa-check-circle"></i>Agregar</button>
+                            &nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" id="cancelRegisterNewClient" href="#">
+                                              <i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                            <div class="footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- modal add payment-->
+            <div id="Modal__payment-toInvoice" class="modal">
+                <div class="modal-dialog flex" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header flex">
+                            <h5 id="title-payment-toInvoice"></h5>
+                        </div>
+                        <div class="modal-body">
+                            <label for=""></label>
+                            <input type="number" class="form-control mb-2" id="input__payment-toinvoice"
+                                   placeholder="$00">
+                            <label for=""><strong id="label__missing-balance"></strong></label>
+                            <br>
+                            <button id="btn__payment-toInvoice" class="btn btn-primary">
+                                <i class="fas fa-money-bill-wave"></i> Abonar 
+                            </button>
+                            <button id="btn__Cancelpayment-toInvoice" class="btn btn-secondary">
+                                <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                        </div>
+                        <div class="footer"></div>             
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal list payment-->
+            <div id="Modal__list-payment" class="modal">
+                <div class="modal-dialog flex" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header flex">
+                            <h5>Abonos realizados</h5>
+                        </div>
+                        <div class="modal-body" id="container__table-listPaiment"></div>
+                        <div class="footer"></div>
+                    </div>
+                </div> 
+            </div>
+                  
+          <!-- secction edit invoice-->
+           
+        </main>
+            <!-- Sidebar menu-->
+            <%- include('./partials/sidebar') %>
+
+                <%- include('./partials/footer') %>
+
+                    <!-- Footer-->
+    </body>
+
+</html>

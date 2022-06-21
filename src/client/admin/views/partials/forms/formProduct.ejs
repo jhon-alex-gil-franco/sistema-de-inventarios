@@ -1,0 +1,64 @@
+<form id="form_reg_product">
+    <div class="form-group">
+
+        <input id="register_product-code"  class="form-control" type="text" placeholder="Codigo"
+            maxlength="10" onkeyup="javascript:this.value=this.value.toUpperCase()" autofocus>
+        <label id="notification-error__inputCodP" class="notifications-input">Formato invalido</label>
+    </div>
+
+    <div class="form-group">
+        <input id="register_product-name"  class="form-control" type="text" placeholder="Producto"
+            maxlength="50" onkeyup="javascript:this.value=this.value.toUpperCase()">
+        <label id="notification-error__inputProduct" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+        <input id="register_product-ref"  class="form-control" type="text" placeholder="Referencia"
+            maxlength="20" onkeyup="javascript:this.value=this.value.toUpperCase()">
+        <label id="notification-error__inputRef" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+        <input id="register_product-marca"  class="form-control" type="text" placeholder="Marca"
+            maxlength="30" onkeyup="javascript:this.value=this.value.toUpperCase()">
+        <label id="notification-error__inputMarcaP" class="notifications-input">Formato invalido</label>
+    </div>
+
+    <div class="form-group">
+
+        <textarea style="resize: none;" id="register_product-description" class="form-control" type="text"
+            placeholder="Descripcion" maxlength="200" onkeyup="javascript:this.value=this.value.toLowerCase()"></textarea>
+        <label id="notification-error__inputDescriptionP" class="notifications-input">Formato invalido</label>
+    </div>
+
+    <div class="form-group">
+       
+        <input id="register_product-amountMin" class="form-control " type="number" placeholder="Cantidad minima para inventario"
+            min="0" max="99" style="appearance:normal;"
+            data-toggle="tooltip" data-placement="bottom"  data-original-title="Establece la cantidad minima que debe tener el stock para generar alertas de existencias antes que el producto se agote">
+        <label id="notification-error__inputAmountMin" class="notifications-input">Formato invalido</label>
+    </div>
+
+    <div class="form-group">
+        <label id="label__amount-product"for=""></label>
+        <input id="register_product-amount"  class="form-control " type="number" placeholder="Cantidad inicial para inventario"
+            min="0" max="999"
+            data-toggle="tooltip" data-placement="bottom"  data-original-title="Establece la cantidad que tendra este producto en el stock">
+        <label id="notification-error__inputAmount" class="notifications-input">Formato invalido</label>
+    </div>
+
+    <div class="form-group">
+        <input id="register_product-price"  class="form-control" type="number" placeholder="$00"
+            min="100" max="9999999"
+            data-toggle="tooltip" data-placement="bottom"  data-original-title="Precio de compra">
+            
+        <label id="notification-error__inputPriceP" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+        <select class="form-control " id="category_product" >
+          <option disabled selected value="null">-- Categoria --</option>
+          <option value="TODAS">TODAS</option>
+        </select>
+      </div>
+    
+    <div id="message-regProduct" class="message-reg alert alert-danger mt-3" role="alert"></div>
+
+</form>

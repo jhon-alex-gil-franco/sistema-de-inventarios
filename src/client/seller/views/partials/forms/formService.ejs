@@ -1,0 +1,30 @@
+<form id="form_reg_service">
+    <div class="form-group">
+
+        <input id="register_service-code" name="Codigo" class="form-control" type="text" placeholder="Codigo"
+            maxlength="5" onkeyup="javascript:this.value=this.value.toUpperCase()" autofocus>
+        <label id="notification-error__inputCod" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+
+        <input id="register_service-name" name="servicio" class="form-control" type="text" placeholder="Servicio"
+            maxlength="50" onkeyup="javascript:this.value=this.value.toUpperCase()">
+        <label id="notification-error__inputService" class="notifications-input">Formato invalido</label>
+    </div>
+
+    <div class="form-group">
+
+        <textarea style="resize: none;" id="register_service-description" name="precio" class="form-control" type="text"
+            placeholder="Descripcion" maxlength="200" onkeyup="javascript:this.value=this.value.toLowerCase()"></textarea>
+        <label id="notification-error__inputDescription" class="notifications-input">Formato invalido</label>
+    </div>
+    <div class="form-group">
+        <label for="">Valor:</label>
+        <input id="register_service-price" name="precio" class="form-control" type="number" placeholder="$00"
+            min="100" max="9999999">
+        <label id="notification-error__inputPrice" class="notifications-input">Formato invalido</label>
+    </div>
+    
+    <div id="message-regService" class="message-reg alert alert-danger mt-3" role="alert"></div>
+
+</form>

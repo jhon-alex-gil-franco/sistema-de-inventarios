@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header') %>
+
+    <body class="app sidebar-mini">
+
+        <!-- Navbar-->
+        <%- include('./partials/navbar') %>
+
+            <main class="app-content">
+                <div class="app-title">
+                    <div>
+                        <h1><i class="fas fa-boxes"></i> Inventario</h1>
+                        <p>Movimientos de inventario</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                        <div class="tile">
+                            <h5 class="mb-3 line-head">Control de stock</h5>
+
+                            <div class="col-md-12 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                                <div class="col-md-6 " id="container_consult-product">
+                                    <select class="form-control" name="" id="Consult_Category-ByProductInventory">
+                                        <option disabled selected value="null">--Consultar por--</option>
+                                        <option value="cod">Codigo</option>
+                                        <option value="name">Nombre</option>
+                                        <option value="ref">Referencia</option>
+                                        <option value="mark">Marca</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 " >
+                                    <input class="form-control"  id="seach_parameterInventory"
+                                    type="search" placeholder="Buscar" 
+                                    data-toggle="tooltip" data-placement="bottom"  data-original-title="parametro de busqueda">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">                                
+                                    <button id="List_consultAll" class="btn btn-dark col-md-3 btn-sm mr-1 mt-1" type="button" > Listar Todos
+                                        <i class="ml-2 fa fa-list"></i>
+                                    </button> 
+                              
+                                    <button id="List_consultOut" class="btn danger col-md-3 btn-sm mr-1 mt-1" type="button" >Agotados
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </button> 
+
+                                    <button id="List_consultByOut" class="btn warning btn-sm col-md-3 mr-1 mt-1" type="button" >Cantidad Minima
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </button> 
+                            </div>
+                                             
+                            <div id="container_table-Inventory">
+                            </div>
+
+                            </div>
+
+                            <div id="Modal__Edit-ProductInventory" class="modal">
+                                <div class="modal-dialog flex" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5 id="title-editInventory"></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label for="">Agregar cantidad a stock</label>
+                                            <input type="number" class="form-control mb-2" id="input_add-stock" placeholder="0">
+                                            <label id="notification-error__inputAdd" class="notifications-input">Dato no valido</label>
+                                            <div id="message-error-add" class="message-reg alert alert-danger mt-3" role="alert"></div>
+                                            <button id="btn__add-stock" class="btn btn-primary"><i
+                                                class="fa fa-fw fa-lg fa-edit"> </i>Agregar</button>
+                                        <button id="cancel__add-stock" class="btn btn-secondary">
+                                            <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                        <div class="footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="info__printInventory" ></div>
+            </main>
+
+
+            <!-- Sidebar menu-->
+            <%- include('./partials/sidebar') %>
+
+                <!-- Footer-->
+                <%- include('./partials/footer') %>
+    </body>
+
+</html>

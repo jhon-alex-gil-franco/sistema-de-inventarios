@@ -1,0 +1,39 @@
+{
+  "name": "Sistema_Inventarios",
+  "version": "1.0.0",
+  "description": "system of invoice",
+  "main": "./src/index.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "jhon alex <franco-alex20111@hotmail.com>",
+  "license": "MIT",
+  "build": {
+    "appId": "LavaAutosApp",
+    "asar": true,
+    "win": {
+      "target": "NSIS",
+      "icon": "./src/build/icon.ico"
+    }
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "ejs-electron": "^2.1.1",
+    "electron-ejs": "^1.2.1",
+    "electron-reload": "^1.5.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "promise-mysql": "^5.0.3",
+    "sweetalert": "^2.1.2",
+    "uniq": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron": "^12.0.8",
+    "electron-builder": "^22.14.13"
+  }
+}

@@ -1,0 +1,50 @@
+
+<form id="form_reg_vehicle">
+
+            
+  <div class="form-group">
+    <div class="form-group">
+      <label for="">Propietario</label>
+      <input id="propietario_veh" class="form-control" type="tex"
+        placeholder="ID Propietario" maxlength="15" autofocus>
+        <label id="notification-error__inputProp" class="notifications-input">Verifique los datos
+          insertados</label>
+    </div>
+    
+    <input id="register_placa" class="form-control" type="text" placeholder="Placa"   maxlength="6" onkeyup="javascript:this.value=this.value.toUpperCase();">
+    <label id="notification-error__inputPlaca" class="notifications-input">Verifique los datos
+      insertados</label>
+  </div>
+  <div class="form-group">
+  
+    <input id="register_marca" class="form-control" type="text" placeholder="Marca"  onkeyup="javascript:this.value=this.value.toUpperCase();"> 
+    <label id="notification-error__inputMarca" class="notifications-input">Verifique los datos
+      insertados</label>
+  </div>
+
+  <div class="form-group">
+   
+    <input id="register_modelo" class="form-control" type="text" placeholder="Modelo" onkeyup="javascript:this.value=this.value.toUpperCase();">
+    <label id="notification-error__inputModelo" class="notifications-input">Verifique los datos
+      insertados</label>
+  </div>
+  <div class="form-group">
+    
+    <input id="register_anio" class="form-control" type="text" placeholder="Año"  maxlength="4">
+    <label id="notification-error__inputAnio" class="notifications-input">Verifique los datos
+      insertados</label>
+  </div>
+  <div class="form-group">
+   
+    <input id="register_kilometraje" class="form-control" type="tel"
+      placeholder="Kilometraje" maxlength="6">
+      <label id="notification-error__inputKm" class="notifications-input">Verifique los datos
+        insertados</label>
+  </div>
+
+  
+
+  <div id="message-regVehicle" class="message-reg alert alert-danger mt-3" role="alert"></div>
+
+
+</form>

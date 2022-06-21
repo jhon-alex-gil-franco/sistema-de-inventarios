@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header') %>
+
+    <body class="app sidebar-mini">
+
+        <!-- Navbar-->
+        <%- include('./partials/navbar') %>
+
+            <main class="app-content">
+                <div class="app-title">
+                    <div>
+                        <h1><i class="fas fa-funnel-dollar"></i> Reportes</h1>
+                        <p>Revision de informes y estadisticas</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="clearfix" style="margin-bottom:-1.3rem;">
+                        <button id="btn__geneterate-reportEmployee" class="btn btn-light btn-sm ml-4 mb-4 pt-1 pb-2"
+                            type="button">Vendedores <i class="fas fa-user-friends"></i>
+                        </button>
+                        <button id="btn__geneterate-reportSales" class="btn btn-light btn-sm ml-1 mb-4 pt-1 pb-2"
+                        type="button"> Rendimiento <i class="fab fa-sellsy"></i>
+                        </button>
+                        <button id="btn__geneterate-reportTopSales" class="btn btn-light btn-sm ml-1 mb-4 pt-1 pb-2"
+                            type="button"> Top <i class="app-menu__icon fa fa-th-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="tile" id="container__consults-informeEmployee">
+                    <h5 class="mb-3 line-head">Informe vendedor</h5>
+                    <div class="col-md-16 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                        <div class="col-md-3">
+                            <input class="form-control" id="input__Date1-reportEmploye" type="date"
+                                data-toggle="tooltip" data-placement="bottom" data-original-title="fecha inicial"
+                                min="2021-01-01" max="2050-01-01">
+                        </div>
+                        <div class="col-md-3 ">
+                            <input class="form-control" id="input__Date2-reportEmploye" type="date"
+                                data-toggle="tooltip" data-placement="bottom" data-original-title="fecha final"
+                                min="2021-01-01" max="2050-01-01">
+                        </div>
+
+                        <div class=" col-md-3 ">
+                            <select class="form-control" name="" id="select_list-Employee">
+                                <option disabled selected value="null">Seleccione Empleado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button id="btn__consult-reportEmploye" class="btn btn-dark  " type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button id="btn__clearConsult-reportEmployee" class="btn btn-success  " type="button"   data-placement="bottom" data-original-title="limpiar" >
+                                <i class="fas fa-brush"></i>
+                            </button>
+                        </div>
+                      
+                    </div>
+                    <div id="container_table-reportEmploye"></div>
+                </div>
+                
+
+                <div class="tile" id="container__consults-informeSales" style="display:none;">
+                    <h5 class="mb-3 line-head">Informe de ventas</h5>
+                    <div class="col-md-16 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                        <div class="col-md-4 ">
+                            <input class="form-control" id="input__Date1-sales" type="date" data-toggle="tooltip"
+                                data-placement="bottom" data-original-title="fecha inicial" min="2021-01-01"
+                                max="2050-01-01">
+                        </div>
+                        <div class="col-md-4 ">
+                            <input class="form-control" id="input__Date2-sales" type="date" data-toggle="tooltip"
+                                data-placement="bottom" data-original-title="fecha final" min="2021-01-01"
+                                max="2050-01-01">
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <button id="btn__consult-reportSales" class="btn btn-dark  " type="button"    data-placement="bottom" data-original-title="buscar" >
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button id="btn__clearConsult-reportSales" class="btn btn-success  " type="button"   data-placement="bottom" data-original-title="limpiar" >
+                                <i class="fas fa-brush"></i>
+                            </button>
+                        </div>
+                       
+                    </div>
+
+                    <div id="container_table-reportSales"></div>
+                </div>
+
+                <div class="tile" id="container__consults-informeTopSales" style="display:none;">
+                    <h5 class="mb-3 line-head">Informe top de ventas</h5>
+                    <div class="col-md-16 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                        <div class="col-md-4 ">
+                            <input class="form-control" id="input__Date1-Topsales" type="date" data-toggle="tooltip"
+                                data-placement="bottom" data-original-title="fecha inicial" min="2021-01-01"
+                                max="2050-01-01">
+                        </div>
+                        <div class="col-md-4 ">
+                            <input class="form-control" id="input__Date2-Topsales" type="date" data-toggle="tooltip"
+                                data-placement="bottom" data-original-title="fecha final" min="2021-01-01"
+                                max="2050-01-01">
+                        </div>
+
+                        <div class="col-md-4 ">
+                            <button id="btn__consult-reportTopSales" class="btn btn-dark  " type="button"    data-placement="bottom" data-original-title="buscar" >
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button id="btn__clearConsult-reportTopSales" class="btn btn-success  " type="button"   data-placement="bottom" data-original-title="limpiar" >
+                                <i class="fas fa-brush"></i>
+                            </button>
+                        </div>
+                       
+                    </div>
+
+                    <div id="container_table-reportTopSales"></div>
+                </div>
+            
+            </main>
+            <!-- Sidebar menu-->
+            <%- include('./partials/sidebar') %>
+                <!-- Footer-->
+            <%- include('./partials/footer') %>
+    </body>
+
+</html>

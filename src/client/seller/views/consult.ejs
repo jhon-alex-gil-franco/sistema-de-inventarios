@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header') %>
+
+    <body class="app sidebar-mini">
+
+        <!-- Navbar-->
+        <%- include('./partials/navbar') %>
+            <main class="app-content">
+                <div class="app-title">
+                    <div>
+                        <h1><i class="fas fa-search"></i></i> Consultas</h1>
+                        <p>Realiza busqueda de datos de las entidades</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                        <div class="tile">
+                            <h5 class="mb-3 line-head">Busqueda de datos</h5>
+
+                            <div class="col-md-12 mr-2 mb-3" style="display: flex;flex-wrap: wrap;">
+                                <div class="col-md-4 ">
+                                    
+                                    <select class="form-control" name="" id="Consult_Category"
+                                        data-toggle="tooltip" data-placement="bottom"  data-original-title="Entidad">
+                                        <option disabled selected value="">--Seleccion una entidad--</option>
+                                        <option value="v">Vehiculos</option>
+                                        <option value="c">Clientes</option>
+                                        <option value="e">Empleados</option>
+                                        <option value="s">Servicios</option>
+                                        <option value="p">Productos</option>
+                                        <option value="pr">Proveedores</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="col-md-4 hide" id="container_consult-vehicle">                                   
+                                    <select class="form-control" name="" id="Consult_Category-ByVehicle"
+                                        data-toggle="tooltip" data-placement="bottom"  data-original-title="Categoria">
+                                        <option value="placa">Placa</option>
+                                        <option value="modelo">Modelo</option>
+                                        <option value="marca">Marca</option>
+                                        <option value="anio">Año</option>
+                                        <option value="propietario">Propietario</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 hide" id="container_consult-client">
+                                    <select class="form-control" name="" id="Consult_Category-ByClient"
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="Categoria">
+                                        <option value="id">Identificacion</option>
+                                        <option value="tc">Tipo de Clientes</option>
+                                       
+                                        <option value="name">Nombre</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 hide" id="container_consult-supplier">
+                                    <select class="form-control" name="" id="Consult_Category-BySupplier"
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="Categoria">
+                                        <option value="id">Identificacion</option>
+                                        <option value="ts">Tipo de Proveedores</option>
+                                        <option value="des">Descripcion</option>
+                                        <option value="name">Nombre</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 hide" id="container_consult-employee">
+                                    <select class="form-control" name="" id="Consult_Category-ByEmployee"
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="Categoria">
+                                        <option value="id">Identificacion</option>
+                                        <option value="name">Nombre</option>
+                                        <option value="vin">Vinculados o Desvincuados</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 hide" id="container_consult-service">
+                                    <select class="form-control" name="" id="Consult_Category-ByService"
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="Categoria">
+                                        <option value="cod">Codigo</option>
+                                        <option value="name">Nombre</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 hide" id="container_consult-product">
+                                    <select class="form-control" name="" id="Consult_Category-ByProduct"
+                                            data-toggle="tooltip" data-placement="bottom"  data-original-title="Categoria">
+                                        <option value="cod">Codigo</option>
+                                        <option value="name">Nombre</option>
+                                        <option value="ref">Referencia</option>
+                                        <option value="mark">Marca</option>
+                                    </select>
+                                </div>
+
+                               
+                                <div class="col-md-3 " >
+                                    <input class="form-control" id="seach_parameter"
+                                    type="search" placeholder="Buscar"
+                                    data-toggle="tooltip" data-placement="bottom"  data-original-title="parametro de busqueda">
+                                </div>
+
+                            </div>
+
+                            <button id="List_consult" class="btn btn-dark btn-sm ml-4 mb-4 pt-2 pb-2" type="button">Listar Todos
+                                <i class="ml-2 fa fa-list"></i>
+                            </button>
+
+                            <div id="container_table-consults">
+                            </div>
+
+                            <div id="Modal__Edit-Veicle" class="modal">
+                                <div class="modal-dialog flex" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5 id="title-editVehicle"></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%- include('./partials/forms/formVehicle') %>
+                                                <button id="btn__edit-vehicle" class="btn btn-primary"><i
+                                                        class="fa fa-fw fa-lg fa-edit"> </i>Actualizar</button>
+                                                <button id="cancel__edit-vehicle" class="btn btn-secondary">
+                                                    <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                        <div class="footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       
+                          
+                            <div id="Modal__Edit-Client" class="modal">
+                               
+                            </div>
+
+                            <div id="Modal__Edit-Supplier" class="modal">
+                                <div class="modal-dialog flex" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5 id="title-editSupplier"></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%- include('./partials/forms/formSupplier') %>
+                                                <button id="btn__edit-supplier" class="btn btn-primary"><i
+                                                        class="fa fa-fw fa-lg fa-edit"> </i>Actualizar</button>
+                                                <button id="cancel__edit-supplier" class="btn btn-secondary">
+                                                    <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                        <div class="footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="Modal__Edit-Employe" class="modal">
+                                <div class="modal-dialog flex" role="document"">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5 id="title-editEmploye"></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%- include('./partials/forms/formEmploye') %>
+                                                <button id="btn__edit-employe" class="btn btn-primary">
+                                                    <i class="fa fa-fw fa-lg fa-edit"> </i>Actualizar</button>
+                                                <button id="cancel__edit-employe" class="btn btn-secondary">
+                                                    <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                        <div class="footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                          
+
+                            <div id="Modal__Edit-Service" class="modal">
+                                <div class="modal-dialog flex" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5 id="title-editService"></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%- include('./partials/forms/formService') %>
+                                            <button id="btn__edit-service" class="btn btn-primary"><i
+                                                class="fa fa-fw fa-lg fa-edit"> </i>Actualizar</button>
+                                        <button id="cancel__edit-service" class="btn btn-secondary">
+                                            <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                        <div class="footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="Modal__Edit-Product" class="modal">
+                                <div class="modal-dialog flex" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5 id="title-editProduct"></h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%- include('./partials/forms/formProduct') %>
+                                            <button id="btn__edit-product" class="btn btn-primary"><i
+                                                class="fa fa-fw fa-lg fa-edit"> </i>Actualizar</button>
+                                        <button id="cancel__edit-product" class="btn btn-secondary">
+                                            <i class="fa fa-fw fa-lg fa-times-circle"> </i>Cancelar</button>
+                                        </div>
+                                        <div class="footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                          
+                            <div id="Modal__reg-newClient" class="modal">
+                                <div class="modal-dialog flex" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex">
+                                            <h5>Registro de cliente</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <%- include('./partials/forms/formClient') %>
+                                                <div class="tile-footer">
+                                                  <button id="registerClient" class="btn btn-primary" type="submit"><i
+                                                    class="fa fa-fw fa-lg fa-check-circle"></i>Agregar</button>&nbsp;&nbsp;&nbsp;<a
+                                                  class="btn btn-secondary" id="cancelRegisterClient" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                                                </div>
+                                        </div>
+                                        <div class="footer"></div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                           
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Sidebar menu-->
+            <%- include('./partials/sidebar') %>
+
+                <!-- Footer-->
+                <%- include('./partials/footer') %>
+              
+          
+    </body>
+
+</html>
